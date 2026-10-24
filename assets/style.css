@@ -570,3 +570,33 @@ input[type=range] { accent-color: var(--hi); }
 .game__inbox.full { border-color: var(--red, #ee406f); }
 .game__inbox.full .game__inbox-h, .game__inbox.full .game__inbox-h b { color: var(--red, #ee406f); }
 @media (max-width: 900px) { .game__row { grid-template-columns: 1fr; } .game__inbox .game__pile { min-height: 3rem; } }
+
+/* Bouncing select arrows above each scenario tile */
+.tiles { margin-top: 1.9rem; }
+.tile { position: relative; overflow: visible; }
+.tile::before {
+  content: "▼"; position: absolute; left: 50%; top: -1.6rem; transform: translateX(-50%);
+  color: var(--hi); font-size: 1rem; line-height: 1; text-shadow: 0 0 8px rgba(255, 230, 0, 0.6);
+  animation: tile-bounce 1.1s ease-in-out infinite; pointer-events: none;
+}
+.tile:nth-child(2)::before { animation-delay: 0.15s; }
+.tile:nth-child(3)::before { animation-delay: 0.3s; }
+.tile[aria-pressed=true]::before { animation: none; opacity: 0.45; }
+.tile:hover::before { animation-duration: 0.6s; }
+@keyframes tile-bounce { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+@media (max-width: 900px) { .tiles { row-gap: 2rem; } }
+@media (prefers-reduced-motion: reduce) { .tile::before { animation: none; } }
+
+/* Same bouncing arrows above the "Explore more for this future" tabs */
+.more .tabs { margin-top: 1.7rem; }
+.tab { position: relative; }
+.tab::before {
+  content: "▼"; position: absolute; left: 50%; top: -1.45rem; transform: translateX(-50%);
+  color: var(--hi); font-size: 0.9rem; line-height: 1; text-shadow: 0 0 8px rgba(255, 230, 0, 0.6);
+  animation: tile-bounce 1.1s ease-in-out infinite; pointer-events: none;
+}
+.tab:nth-child(2)::before { animation-delay: 0.15s; }
+.tab:nth-child(3)::before { animation-delay: 0.3s; }
+.tab[aria-selected=true]::before { animation: none; opacity: 0.45; }
+.tab:hover::before { animation-duration: 0.6s; }
+@media (prefers-reduced-motion: reduce) { .tab::before { animation: none; } }
