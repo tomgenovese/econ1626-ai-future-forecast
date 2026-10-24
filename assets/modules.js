@@ -337,6 +337,10 @@
       $("#g-wait").textContent = Math.max(0, st.queue.length - 1);
       $("#g-ok").textContent = st.ok; $("#g-no").textContent = st.no;
       $("#g-bar").style.width = (st.left / 60) * 100 + "%";
+      const nWait = Math.max(0, st.queue.length - 1);
+      $("#g-pile-n").textContent = nWait;
+      pile.parentNode.classList.toggle("full", nWait >= 20);
+      if (!nWait) { pile.innerHTML = `<span class="game__pile-empty">Empty: you're keeping up</span>`; return; }
       pile.innerHTML = st.queue.slice(1, 60).map(d => `<i class="${d.fin ? "fin" : d.ai ? "ai" : ""}"></i>`).join("") +
         (st.queue.length > 61 ? `<span style="font-family:var(--mono);font-size:.75rem;color:var(--amber)">+${st.queue.length - 61}</span>` : "");
     }

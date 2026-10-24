@@ -553,3 +553,20 @@ input[type=range] { accent-color: var(--hi); }
 
 /* AI use disclosure: normal paragraph, not a hanging-indent reference */
 .refs p.disclosure { padding-left: 0; text-indent: 0; color: var(--ink); font-size: 1rem; line-height: 1.6; }
+
+/* Waiting-drafts inbox: label the pile so it reads as the queue */
+.game__row { grid-template-columns: minmax(0, 1fr) 13rem; }
+.game__inbox { border: 1px solid var(--amber); background: #0d0a02; padding: 0.55rem; display: grid; gap: 0.4rem; }
+.game__inbox-h { margin: 0; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--amber); display: flex; justify-content: space-between; align-items: baseline; }
+.game__inbox-h b { font-size: 1.6rem; color: var(--amber); font-weight: 500; letter-spacing: 0; }
+.game__inbox-sub { margin: 0; font-size: 0.72rem; line-height: 1.3; color: var(--ink-dim); }
+.game__inbox .game__pile { border-color: #4a3606; min-height: 8rem; }
+.game__inbox-k { margin: 0; display: flex; gap: 0.7rem; font-family: var(--mono); font-size: 0.7rem; color: var(--ink-dim); }
+.game__inbox-k span { display: inline-flex; align-items: center; gap: 0.3rem; }
+.game__inbox-k i { width: 10px; height: 12px; display: inline-block; background: #1f4a2c; border: 1px solid #2f6b42; }
+.game__inbox-k i.ai { background: #2a3a14; border-color: #5f7d2a; }
+.game__inbox-k i.fin { background: #3a2a05; border-color: #995c00; }
+.game__pile-empty { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-dim); }
+.game__inbox.full { border-color: var(--red, #ee406f); }
+.game__inbox.full .game__inbox-h, .game__inbox.full .game__inbox-h b { color: var(--red, #ee406f); }
+@media (max-width: 900px) { .game__row { grid-template-columns: 1fr; } .game__inbox .game__pile { min-height: 3rem; } }

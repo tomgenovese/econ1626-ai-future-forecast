@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=25">
+<link rel="stylesheet" href="assets/style.css?v=26">
 </head>
 <body>
 
@@ -113,7 +113,12 @@
         <div class="game__banner" id="g-banner" hidden></div>
         <div class="game__row">
           <div class="draft" id="g-draft" aria-live="polite"></div>
-          <div class="game__pile" id="g-pile" aria-hidden="true"></div>
+          <div class="game__inbox">
+            <p class="game__inbox-h">Waiting drafts <b id="g-pile-n">0</b></p>
+            <p class="game__inbox-sub">Each block is one draft still waiting for you to check it</p>
+            <div class="game__pile" id="g-pile" aria-hidden="true"></div>
+            <p class="game__inbox-k"><span><i></i>Human</span><span><i class="ai"></i>AI</span><span><i class="fin"></i>Finance</span></p>
+          </div>
         </div>
         <div class="game__btns">
           <button class="btn btn--go" id="g-approve"><span class="key" style="color:#000">A</span>Approve</button>
@@ -310,8 +315,8 @@
 
 <footer>Built with plain HTML, CSS and JavaScript. Model and data: see README in the repository.</footer>
 
-<script src="assets/model.js?v=25"></script>
-<script src="assets/app.js?v=25"></script>
-<script src="assets/modules.js?v=25"></script>
+<script src="assets/model.js?v=26"></script>
+<script src="assets/app.js?v=26"></script>
+<script src="assets/modules.js?v=26"></script>
 </body>
 </html>
