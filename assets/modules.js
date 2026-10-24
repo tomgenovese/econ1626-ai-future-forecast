@@ -213,7 +213,7 @@
     const chosen = new Set();
     LEVERS.forEach(l => {
       const b = document.createElement("button");
-      b.className = "lever"; b.dataset.id = l.id; b.setAttribute("aria-pressed", "false");
+      b.className = "lever pick"; b.dataset.id = l.id; b.setAttribute("aria-pressed", "false");
       b.innerHTML = `<span class="box"></span><span>${l.name}${l.cost ? "" : ' <span class="free">free</span>'}<small>${l.note}</small></span>`;
       b.addEventListener("click", () => { chosen.has(l.id) ? chosen.delete(l.id) : chosen.add(l.id); render(); });
       host.appendChild(b);
@@ -374,7 +374,7 @@
       const e = $("#game-end"); e.hidden = false;
       e.innerHTML = `<p class="big">Before AI, ${st.waitBefore ?? waiting} drafts were waiting. By the end, ${waiting} were.</p>
         <p>You checked ${checked} drafts and approved ${st.missed} with an error. The AI never slowed down; you were the bottleneck. That is the review queue Chen and Stratton measured.</p>
-        <button class="btn btn--go" id="game-again">Play again</button>`;
+        <button class="btn btn--go pick" id="game-again">Play again</button>`;
       $("#game-again").addEventListener("click", start);
     }
     function start() {
@@ -423,8 +423,8 @@
       const done = i >= DECISIONS.length;
       $("#reg-year").textContent = done ? "2030: your result" : `Decision ${i + 1} of 5, ${DECISIONS[i].y}`;
       $("#reg-q").textContent = done ? "" : DECISIONS[i].q;
-      $("#reg-opts").innerHTML = done ? '<button class="btn" id="reg-again">Start again</button>'
-        : DECISIONS[i].o.map(([t], k) => `<button class="btn" data-k="${k}">${t}</button>`).join("");
+      $("#reg-opts").innerHTML = done ? '<button class="btn pick" id="reg-again">Start again</button>'
+        : DECISIONS[i].o.map(([t], k) => `<button class="btn pick" data-k="${k}">${t}</button>`).join("");
       $("#reg-log").innerHTML = picks.map(([d, k]) => `<li>${DECISIONS[d].y}: ${DECISIONS[d].o[k][0]}</li>`).join("");
       $$("#reg-opts [data-k]").forEach(b => b.addEventListener("click", () => { picks.push([i, +b.dataset.k]); i++; render(); }));
       const again = $("#reg-again"); if (again) again.addEventListener("click", () => { i = 0; picks = []; render(); });

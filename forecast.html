@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=27">
+<link rel="stylesheet" href="assets/style.css?v=28">
 </head>
 <body>
 
@@ -49,7 +49,7 @@
           <label for="guess-in">Your guess</label><output id="guess-out">+20%</output>
           <input type="range" id="guess-in" min="0" max="30" step="1" value="20">
         </div>
-        <button class="btn btn--go" id="guess-go">Lock in my guess</button>
+        <button class="btn btn--go pick" id="guess-go">Lock in my guess</button>
         <div id="guess-result" hidden>
           <div class="guess__bars">
             <div class="gbar"><span>Code written</span><div class="track"><div class="fill" data-w="100" style="background:#5f7d69"></div></div><span class="val">+30%</span></div>
@@ -97,7 +97,7 @@
     <div class="panel__body game" id="game">
       <div class="game__start" id="game-start">
         <p class="guess__q">You are the senior reviewer. Each draft shows the rule to check: approve it if it passes, reject it if it breaks the rule. For 20 seconds, drafts arrive at human speed. Then AI agents arrive.</p>
-        <button class="btn btn--go" id="game-go">Start reviewing</button>
+        <button class="btn btn--go pick" id="game-go">Start reviewing</button>
       </div>
       <div class="game__play" id="game-play" hidden>
         <div class="game__stage">
@@ -107,7 +107,7 @@
         <div class="game__segs" aria-hidden="true"><span><i id="g-seg0"></i><b>Before AI</b></span><span><i id="g-seg1"></i><b>AI writes code</b></span><span><i id="g-seg2"></i><b>AI in finance</b></span></div>
         <div class="game__hud">
           <span>Time <b id="g-time">60</b>s</span><span>Waiting <b id="g-wait" class="warn">0</b></span><span>Approved <b id="g-ok">0</b></span><span>Rejected <b id="g-no">0</b></span>
-          <button class="btn" id="game-skip" style="padding:0.2rem 0.6rem;font-size:0.75rem">Skip</button>
+          <button class="btn pick pick--side" id="game-skip" style="padding:0.2rem 0.6rem;font-size:0.75rem">Skip</button>
         </div>
         <div class="game__timer"><div id="g-bar"></div></div>
         <div class="game__banner" id="g-banner" hidden></div>
@@ -121,8 +121,8 @@
           </div>
         </div>
         <div class="game__btns">
-          <button class="btn btn--go" id="g-approve"><span class="key" style="color:#000">A</span>Approve</button>
-          <button class="btn" id="g-reject"><span class="key">R</span>Reject</button>
+          <button class="btn btn--go pick" id="g-approve"><span class="key" style="color:#000">A</span>Approve</button>
+          <button class="btn pick" id="g-reject"><span class="key">R</span>Reject</button>
           <p class="game__fb" id="g-fb" aria-live="polite"></p>
         </div>
       </div>
@@ -144,7 +144,7 @@
           <p class="panel__note">Finance rose from 1% in 2021–22, the fastest increase of any industry. Dashed: all-business average.</p>
         </div>
         <div class="panel-view queue" data-view="queue">
-          <div class="queue__clock"><span>⏱ Running <b id="q-clock">0:00</b></span><button class="btn btn--go btn--sm" id="q-restart">Restart</button></div>
+          <div class="queue__clock"><span>⏱ Running <b id="q-clock">0:00</b></span><button class="btn btn--go btn--sm pick pick--side" id="q-restart">Restart</button></div>
           <canvas id="queue-canvas" width="640" height="250" aria-label="Animated checkout queue: AI drafts arrive on a belt and wait for checkers"></canvas>
           <div class="queue__stats">
             <div class="stat"><b id="q-done">0</b><span>finished</span></div>
@@ -267,7 +267,7 @@
         <div class="ctrl"><label for="a-exp">Share of work AI can draft</label><output id="a-exp-o"></output><input type="range" id="a-exp" min="0.3" max="0.6" step="0.02"></div>
         <div class="ctrl"><label for="a-rem">Cost of each slipped error (drafts)</label><output id="a-rem-o"></output><input type="range" id="a-rem" min="0" max="20" step="1"></div>
         <table class="assume-table" id="assume-table"></table>
-        <p class="panel__note">2030 results. Defaults: multiplier 1.5, share 0.44, cost 10. <button class="btn" id="a-reset" style="padding:0.2rem 0.5rem;font-size:0.75rem">Reset</button></p>
+        <p class="panel__note">2030 results. Defaults: multiplier 1.5, share 0.44, cost 10. <button class="btn pick pick--side" id="a-reset" style="padding:0.2rem 0.5rem;font-size:0.75rem">Reset</button></p>
       </div>
     </div>
   </div>
@@ -315,8 +315,8 @@
 
 <footer>Built with plain HTML, CSS and JavaScript. Model and data: see README in the repository.</footer>
 
-<script src="assets/model.js?v=27"></script>
-<script src="assets/app.js?v=27"></script>
-<script src="assets/modules.js?v=27"></script>
+<script src="assets/model.js?v=28"></script>
+<script src="assets/app.js?v=28"></script>
+<script src="assets/modules.js?v=28"></script>
 </body>
 </html>
